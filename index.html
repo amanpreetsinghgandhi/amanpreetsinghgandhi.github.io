@@ -13,6 +13,7 @@
             margin: 0;
             padding: 0;
             text-align: center;
+            scroll-behavior: smooth;
         }
         header {
             background: #112240;
@@ -22,6 +23,13 @@
         nav {
             background: #233554;
             padding: 15px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
         }
         nav a {
             color: #64ffda;
@@ -44,20 +52,9 @@
             width: 100%;
             bottom: 0;
         }
-        ul {
-    list-style-type: disc; /* Ensures bullets appear */
-    padding-left: 20px; /* Standard left padding */
-    margin-left: 0; /* Avoids excessive spacing */
-    text-align: left; /* Aligns text to the left */
-    display: inline-block; /* Prevents full-width centering issue */
-}
-
-li {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Centers text if needed */
-}
-
+        body {
+            padding-top: 60px;
+        }
     </style>
 </head>
 <body>
@@ -77,12 +74,12 @@ li {
     </section>
     <section id="about">
         <h2>About Me</h2>
-        <img src="https://github.com/amanpreetsinghgandhi/amanpreetsinghgandhi.github.io/blob/main/1x1.jpg?raw=true" alt="Profile Picture" width="500">
+        <img src="https://raw.githubusercontent.com/amanpreetsinghgandhi/amanpreetsinghgandhi.github.io/main/1x1.jpg" alt="Profile Picture" width="500">
         <p>I am a cybersecurity enthusiast with expertise in penetration testing, network security, and ethical hacking. I have worked on various projects involving security assessments, vulnerability management, and risk mitigation strategies. My goal is to contribute to making the digital world a safer place by proactively identifying and mitigating cyber threats.</p>
     </section>
     <section id="skills">
         <h2>My Skills</h2>
-        <ul>
+        <ul style="list-style-type: none; padding-left: 0;">
             <li>Penetration Testing & Ethical Hacking</li>
             <li>Network Security & Firewalls</li>
             <li>Threat Intelligence & Risk Assessment</li>
@@ -93,19 +90,34 @@ li {
     <section id="projects">
         <h2>Projects</h2>
         <div class="project">
-            <img src="https://github.com/amanpreetsinghgandhi/amanpreetsinghgandhi.github.io/blob/main/Project1.jpg?raw=true" alt="Project Image" width="500">
+            <img src="https://raw.githubusercontent.com/amanpreetsinghgandhi/amanpreetsinghgandhi.github.io/main/Project1.jpg" alt="Project Image" width="300">
             <p><strong>Project Name:</strong> Web Application Security Assessment</p>
             <p><strong>Description:</strong> Conducted a thorough penetration test on a web application to identify vulnerabilities such as SQL injection, XSS, and CSRF. Provided a detailed security report with mitigation strategies to enhance security posture.</p>
         </div>
     </section>
     <section id="contact">
         <h2>Contact Me</h2>
-<p>Email : <a href="https://mail.google.com/mail/?view=cm&to=amanpreetsinghgandhi77@gmail.com" target="_blank" style="color: #64ffda;">amanpreetsinghgandhi77@gmail.com</a></p>
+        <p>Email : <a href="mailto:amanpreetsinghgandhi77@gmail.com" style="color: #64ffda;">amanpreetsinghgandhi77@gmail.com</a></p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/amanpreetsinghgandhi/" target="_blank" style="color: #64ffda;">linkedin.com/in/amanpreetsinghgandhi/</a></p>
         <p>GitHub: <a href="https://www.github.com/amanpreetsinghgandhi/" target="_blank" style="color: #64ffda;">github.com/amanpreetsinghgandhi/</a></p>
     </section>
     <footer>
         &copy; 2025 Amanpreet's Cybersecurity Portfolio
     </footer>
+    <script>
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(event) {
+                event.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
